@@ -13,10 +13,7 @@ def parseOutText(f):
         example use case:
         f = open("email_file_name.txt", "r")
         text = parseOutText(f)
-        
         """
-
-
     f.seek(0)  ### go back to beginning of file (annoying)
     all_text = f.read()
 
@@ -33,10 +30,10 @@ def parseOutText(f):
         ### split the text string into individual words, stem each word,
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
-        
-
-
-
+        words = words.split()
+        stemmer = SnowballStemmer("english")
+        words = [stemmer.stem(w) for w in words]
+        words = " ".join(words)
 
     return words
 
